@@ -121,3 +121,24 @@ botocore.exceptions.NoCredentialsError: Unable to locate credentials
 [2026-02-15T23:54:37.785+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=watchlist_load, task_id=extract_trending, execution_date=20240101T000000, start_date=20260215T235436, end_date=20260215T235437
 [2026-02-15T23:54:37.818+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
 [2026-02-15T23:54:37.843+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-02-16T19:56:49.879+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: watchlist_load.extract_trending scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2026-02-16T19:56:49.891+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: watchlist_load.extract_trending scheduled__2024-01-01T00:00:00+00:00 [queued]>
+[2026-02-16T19:56:49.892+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-16T19:56:49.946+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_trending> on 2024-01-01 00:00:00+00:00
+[2026-02-16T19:56:49.955+0000] {standard_task_runner.py:60} INFO - Started process 121 to run task
+[2026-02-16T19:56:49.960+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'watchlist_load', 'extract_trending', 'scheduled__2024-01-01T00:00:00+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/watchlist_load.py', '--cfg-path', '/tmp/tmpw570vzg8']
+[2026-02-16T19:56:49.964+0000] {standard_task_runner.py:88} INFO - Job 2: Subtask extract_trending
+[2026-02-16T19:56:50.052+0000] {task_command.py:423} INFO - Running <TaskInstance: watchlist_load.extract_trending scheduled__2024-01-01T00:00:00+00:00 [running]> on host 40897aeeaf74
+[2026-02-16T19:56:50.155+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='watchlist_load' AIRFLOW_CTX_TASK_ID='extract_trending' AIRFLOW_CTX_EXECUTION_DATE='2024-01-01T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-01-01T00:00:00+00:00'
+[2026-02-16T19:56:50.157+0000] {logging_mixin.py:188} INFO - 🚀 A contactar https://api.coingecko.com/api/v3/search/trending...
+[2026-02-16T19:56:50.751+0000] {logging_mixin.py:188} INFO - 💎 Encontradas 15 moedas em tendência.
+[2026-02-16T19:56:50.754+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-02-16T19:56:50.756+0000] {base.py:83} INFO - Using connection ID 'minio_s3_conn' for task execution.
+[2026-02-16T19:56:50.758+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='minio_s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2026-02-16T19:56:51.822+0000] {s3.py:291} INFO - Bucket "coingecko-raw" does not exist
+[2026-02-16T19:56:51.823+0000] {logging_mixin.py:188} INFO - 🪣 Bucket coingecko-raw não encontrado. A criar...
+[2026-02-16T19:56:51.856+0000] {logging_mixin.py:188} INFO - ✅ Upload feito para s3://coingecko-raw/trending/20240101T000000.json
+[2026-02-16T19:56:51.859+0000] {python.py:201} INFO - Done. Returned value was: trending/20240101T000000.json
+[2026-02-16T19:56:51.880+0000] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=watchlist_load, task_id=extract_trending, execution_date=20240101T000000, start_date=20260216T195649, end_date=20260216T195651
+[2026-02-16T19:56:51.943+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-16T19:56:51.975+0000] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -129,7 +129,7 @@ def load_csv_to_postgres(**context):
     
     # O comando mágico que faz o mapeamento CSV -> Tabela
     sql = """
-        COPY dh_raw.market_data (coin_id, vs_currency, ingested_at, last_updated_api, coin_data)
+        COPY dh_raw.market_data (coin_id, vs_currency, ingested_at, last_updated, coin_data)
         FROM STDIN WITH (FORMAT CSV, HEADER FALSE, DELIMITER ',', QUOTE '"');
     """
     
