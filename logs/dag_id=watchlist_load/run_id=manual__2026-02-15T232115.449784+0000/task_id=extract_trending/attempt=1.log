@@ -1,0 +1,81 @@
+[2026-02-15T23:21:20.679+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: watchlist_load.extract_trending manual__2026-02-15T23:21:15.449784+00:00 [queued]>
+[2026-02-15T23:21:20.689+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: watchlist_load.extract_trending manual__2026-02-15T23:21:15.449784+00:00 [queued]>
+[2026-02-15T23:21:20.690+0000] {taskinstance.py:2170} INFO - Starting attempt 1 of 3
+[2026-02-15T23:21:20.709+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): extract_trending> on 2026-02-15 23:21:15.449784+00:00
+[2026-02-15T23:21:20.716+0000] {standard_task_runner.py:60} INFO - Started process 138 to run task
+[2026-02-15T23:21:20.720+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'watchlist_load', 'extract_trending', 'manual__2026-02-15T23:21:15.449784+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/watchlist_load.py', '--cfg-path', '/tmp/tmp7hlgmflk']
+[2026-02-15T23:21:20.723+0000] {standard_task_runner.py:88} INFO - Job 3: Subtask extract_trending
+[2026-02-15T23:21:20.780+0000] {task_command.py:423} INFO - Running <TaskInstance: watchlist_load.extract_trending manual__2026-02-15T23:21:15.449784+00:00 [running]> on host 56072c155466
+[2026-02-15T23:21:20.854+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='watchlist_load' AIRFLOW_CTX_TASK_ID='extract_trending' AIRFLOW_CTX_EXECUTION_DATE='2026-02-15T23:21:15.449784+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-15T23:21:15.449784+00:00'
+[2026-02-15T23:21:20.856+0000] {logging_mixin.py:188} INFO - 🚀 A contactar https://api.coingecko.com/api/v3/search/trending...
+[2026-02-15T23:21:21.018+0000] {logging_mixin.py:188} INFO - 💎 Encontradas 15 moedas em tendência.
+[2026-02-15T23:21:21.020+0000] {connection.py:473} ERROR - Unable to retrieve connection from secrets backend (EnvironmentVariablesBackend). Checking subsequent secrets backend.
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/connection.py", line 468, in get_connection_from_secrets
+    conn = secrets_backend.get_connection(conn_id=conn_id)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/secrets/base_secrets.py", line 116, in get_connection
+    return self.deserialize_connection(conn_id=conn_id, value=value)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/secrets/base_secrets.py", line 70, in deserialize_connection
+    return Connection(conn_id=conn_id, uri=value)
+  File "<string>", line 4, in __init__
+  File "/home/airflow/.local/lib/python3.10/site-packages/sqlalchemy/orm/state.py", line 481, in _initialize_instance
+    with util.safe_reraise():
+  File "/home/airflow/.local/lib/python3.10/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    compat.raise_(
+  File "/home/airflow/.local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.10/site-packages/sqlalchemy/orm/state.py", line 479, in _initialize_instance
+    return manager.original_init(*mixed[1:], **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/connection.py", line 129, in __init__
+    self._parse_from_uri(uri)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/connection.py", line 205, in _parse_from_uri
+    raise AirflowException(f"Invalid connection string: {uri}.")
+airflow.exceptions.AirflowException: Invalid connection string: aws://minio_admin:minio123@?extra__aws__endpoint_url=http://minio:9000.
+[2026-02-15T23:21:21.028+0000] {base_aws.py:581} WARNING - Unable to find AWS Connection ID 'minio_s3_conn', switching to empty.
+[2026-02-15T23:21:21.030+0000] {base_aws.py:161} INFO - No connection ID provided. Fallback on boto3 credential strategy (region_name=None). See: https://boto3.amazonaws.com/v1/documentation/api/latest/guide/configuration.html
+[2026-02-15T23:21:21.504+0000] {logging_mixin.py:188} INFO - ❌ Erro ao extrair trending: Unable to locate credentials
+[2026-02-15T23:21:21.505+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/watchlist_load.py", line 70, in extract_trending_to_s3
+    raise e
+  File "/opt/airflow/dags/watchlist_load.py", line 55, in extract_trending_to_s3
+    if not s3_hook.check_for_bucket(BUCKET_NAME):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 91, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 281, in check_for_bucket
+    self.get_conn().head_bucket(Bucket=bucket_name)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 989, in _make_api_call
+    http, parsed_response = self._make_request(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/client.py", line 1015, in _make_request
+    return self._endpoint.make_request(operation_model, request_dict)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 119, in make_request
+    return self._send_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 198, in _send_request
+    request = self.create_request(request_dict, operation_model)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/endpoint.py", line 134, in create_request
+    self._event_emitter.emit(
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 412, in emit
+    return self._emitter.emit(aliased_event_name, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 256, in emit
+    return self._emit(event_name, kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/hooks.py", line 239, in _emit
+    response = handler(**kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/signers.py", line 105, in handler
+    return self.sign(operation_name, request)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/signers.py", line 195, in sign
+    auth.add_auth(request)
+  File "/home/airflow/.local/lib/python3.10/site-packages/botocore/auth.py", line 418, in add_auth
+    raise NoCredentialsError()
+botocore.exceptions.NoCredentialsError: Unable to locate credentials
+[2026-02-15T23:21:21.512+0000] {taskinstance.py:1138} INFO - Marking task as UP_FOR_RETRY. dag_id=watchlist_load, task_id=extract_trending, execution_date=20260215T232115, start_date=20260215T232120, end_date=20260215T232121
+[2026-02-15T23:21:21.526+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 3 for task extract_trending (Unable to locate credentials; 138)
+[2026-02-15T23:21:21.578+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-02-15T23:21:21.597+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check

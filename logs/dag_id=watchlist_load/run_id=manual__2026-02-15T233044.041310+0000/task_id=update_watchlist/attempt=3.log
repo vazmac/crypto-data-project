@@ -1,0 +1,35 @@
+[2026-02-15T23:41:06.781+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: watchlist_load.update_watchlist manual__2026-02-15T23:30:44.041310+00:00 [queued]>
+[2026-02-15T23:41:06.791+0000] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: watchlist_load.update_watchlist manual__2026-02-15T23:30:44.041310+00:00 [queued]>
+[2026-02-15T23:41:06.792+0000] {taskinstance.py:2170} INFO - Starting attempt 3 of 3
+[2026-02-15T23:41:06.816+0000] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): update_watchlist> on 2026-02-15 23:30:44.041310+00:00
+[2026-02-15T23:41:06.823+0000] {standard_task_runner.py:60} INFO - Started process 280 to run task
+[2026-02-15T23:41:06.829+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'watchlist_load', 'update_watchlist', 'manual__2026-02-15T23:30:44.041310+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/watchlist_load.py', '--cfg-path', '/tmp/tmpdjn0rzwx']
+[2026-02-15T23:41:06.832+0000] {standard_task_runner.py:88} INFO - Job 9: Subtask update_watchlist
+[2026-02-15T23:41:06.884+0000] {task_command.py:423} INFO - Running <TaskInstance: watchlist_load.update_watchlist manual__2026-02-15T23:30:44.041310+00:00 [running]> on host a063c1a6623c
+[2026-02-15T23:41:06.955+0000] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='watchlist_load' AIRFLOW_CTX_TASK_ID='update_watchlist' AIRFLOW_CTX_EXECUTION_DATE='2026-02-15T23:30:44.041310+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-15T23:30:44.041310+00:00'
+[2026-02-15T23:41:06.966+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2026-02-15T23:41:06.968+0000] {base.py:83} INFO - Using connection ID 'minio_s3_conn' for task execution.
+[2026-02-15T23:41:06.969+0000] {connection_wrapper.py:378} INFO - AWS Connection (conn_id='minio_s3_conn', conn_type='aws') credentials retrieved from login and password.
+[2026-02-15T23:41:07.139+0000] {logging_mixin.py:188} INFO - 📋 IDs a processar: ['venice-token', 'initia', 'bitcoin', 'ethereum', 'bittensor', 'solana', 'chainlink', 'pendle', 'pi-network', 'ripple', 'plasma', 'celestia', 'layerzero', 'pudgy-penguins', 'pepe']
+[2026-02-15T23:41:07.141+0000] {base.py:83} INFO - Using connection ID 'postgres_dw' for task execution.
+[2026-02-15T23:41:07.150+0000] {taskinstance.py:2698} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 433, in _execute_task
+    result = execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 199, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 216, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/watchlist_load.py", line 107, in update_watchlist_from_s3
+    cursor.execute(insert_query, (coin_id,))
+psycopg2.errors.UndefinedColumn: column "source" of relation "coin_watchlist" does not exist
+LINE 2: ...      INSERT INTO dh_raw.coin_watchlist (coin_id, source, ad...
+                                                             ^
+
+[2026-02-15T23:41:07.159+0000] {taskinstance.py:1138} INFO - Marking task as FAILED. dag_id=watchlist_load, task_id=update_watchlist, execution_date=20260215T233044, start_date=20260215T234106, end_date=20260215T234107
+[2026-02-15T23:41:07.210+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 9 for task update_watchlist (column "source" of relation "coin_watchlist" does not exist
+LINE 2: ...      INSERT INTO dh_raw.coin_watchlist (coin_id, source, ad...
+                                                             ^
+; 280)
+[2026-02-15T23:41:07.243+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-02-15T23:41:07.259+0000] {taskinstance.py:3280} INFO - 0 downstream tasks scheduled from follow-on schedule check
