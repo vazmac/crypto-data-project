@@ -1,0 +1,32 @@
+# Variáveis
+CONTAINER_NAME = crypto_airflow
+DBT_DIR = dags/coingecko_dw
+
+.PHONY: help
+help:
+	@echo "🛠️  Comandos do Projeto Crypto Data:"
+	@echo "   make dbt-check   -> Verifica a conexão do dbt"
+	@echo "   make dbt-run     -> Corre os modelos (dbt run)"
+	@echo "   make dbt-test    -> Corre os testes (dbt test)"
+	@echo "   make dbt-doc     -> Gera e serve a documentação"
+	@echo "   make bash        -> Entra no terminal do Airflow"
+
+# --- Comandos dbt para executar em ambiente dev via container airflow (em vez de ter dbt instalado localmente)---
+
+dbt-check:
+	docker exec -it $(CONTAINER_NAME) bash -c "cd $(DBT_DIR) && dbt debug --profiles-dir ."
+
+dbt-run:
+	docker exec -it $(CONTAINER_NAME) bash -c "cd $(DBT_DIR) && dbt run --profiles-dir ."
+
+dbt-test:
+	docker exec -it $(CONTAINER_NAME) bash -c "cd $(DBT_DIR) && dbt test --profiles-dir ."
+
+dbt-run-full:
+	docker exec -it $(CONTAINER_NAME) bash -c "cd $(DBT_DIR) && dbt run --full-refresh --profiles-dir ."
+
+# --- Utilitários ---
+
+# Entrar na máquina para explorar
+bash:
+	docker exec -it $(CONTAINER_NAME) bash
