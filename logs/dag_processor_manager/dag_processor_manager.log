@@ -1593,3 +1593,330 @@ File Path                                    PID    Runtime      # DAGs    # Err
 /opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-15T23:59:29
 ================================================================================
 [2026-02-15T23:59:51.976+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2026-02-16T19:54:22.363+0000] {manager.py:469} INFO - Processing files using up to 1 processes at a time 
+[2026-02-16T19:54:22.365+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2026-02-16T19:54:22.366+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-02-16T19:54:22.367+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-02-16T19:54:22.412+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2026-02-16T19:54:23.715+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           0           0
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T19:54:23
+================================================================================
+[2026-02-16T19:54:54.254+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.41s           2026-02-16T19:54:25
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T19:54:54
+================================================================================
+[2026-02-16T19:55:25.085+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T19:54:55
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T19:55:25
+================================================================================
+[2026-02-16T19:55:55.621+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T19:55:26
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.41s           2026-02-16T19:55:55
+================================================================================
+[2026-02-16T19:56:26.012+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T19:55:56
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T19:56:26
+================================================================================
+[2026-02-16T19:57:02.734+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T19:56:27
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T19:57:02
+================================================================================
+[2026-02-16T19:57:33.319+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T19:57:07
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T19:57:33
+================================================================================
+[2026-02-16T19:58:04.182+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T19:57:37
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T19:58:04
+================================================================================
+[2026-02-16T19:58:39.279+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T19:58:08
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T19:58:39
+================================================================================
+[2026-02-16T19:59:10.016+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T19:58:43
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T19:59:10
+================================================================================
+[2026-02-16T19:59:22.485+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-02-16T19:59:22.523+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2026-02-16T19:59:41.277+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T19:59:14
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T19:59:41
+================================================================================
+[2026-02-16T20:00:12.635+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.41s           2026-02-16T19:59:45
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:00:12
+================================================================================
+[2026-02-16T20:00:43.723+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T20:00:16
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T20:00:43
+================================================================================
+[2026-02-16T20:01:14.063+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T20:00:47
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:01:14
+================================================================================
+[2026-02-16T20:01:45.311+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:01:17
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:01:45
+================================================================================
+[2026-02-16T20:02:18.979+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:01:48
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:02:18
+================================================================================
+[2026-02-16T20:02:49.342+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T20:02:38
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:02:49
+================================================================================
+[2026-02-16T20:03:19.729+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.22s           2026-02-16T20:03:09
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:03:19
+================================================================================
+[2026-02-16T20:03:50.829+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:03:44
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:03:50
+================================================================================
+[2026-02-16T20:04:21.569+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:04:15
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:04:21
+================================================================================
+[2026-02-16T20:04:22.600+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-02-16T20:04:22.646+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2026-02-16T20:04:52.767+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:04:46
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T20:04:52
+================================================================================
+[2026-02-16T20:05:23.354+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T20:05:18
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T20:05:23
+================================================================================
+[2026-02-16T20:05:54.433+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.22s           2026-02-16T20:05:49
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T20:05:54
+================================================================================
+[2026-02-16T20:06:24.684+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T20:06:19
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:06:24
+================================================================================
+[2026-02-16T20:06:55.731+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:06:50
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:06:55
+================================================================================
+[2026-02-16T20:07:26.495+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.22s           2026-02-16T20:07:20
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:07:26
+================================================================================
+[2026-02-16T20:07:57.230+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:07:51
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.22s           2026-02-16T20:07:57
+================================================================================
+[2026-02-16T20:08:27.901+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:08:21
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:08:27
+================================================================================
+[2026-02-16T20:08:58.572+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:08:51
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:08:58
+================================================================================
+[2026-02-16T20:09:23.528+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-02-16T20:09:23.566+0000] {manager.py:741} INFO - There are 2 files in /opt/airflow/dags
+[2026-02-16T20:09:29.354+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.22s           2026-02-16T20:09:22
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:09:29
+================================================================================
+[2026-02-16T20:09:59.722+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:09:52
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:09:59
+================================================================================
+[2026-02-16T20:10:30.080+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:10:22
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:10:30
+================================================================================
+[2026-02-16T20:11:00.433+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.31s           2026-02-16T20:10:53
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.21s           2026-02-16T20:11:00
+================================================================================
+[2026-02-16T20:11:30.831+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.22s           2026-02-16T20:11:23
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T20:11:30
+================================================================================
+[2026-02-16T20:12:01.284+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                    PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/market_data_extraction.py                           1           0  0.21s           2026-02-16T20:11:53
+/opt/airflow/dags/watchlist_load.py                                   1           0  0.31s           2026-02-16T20:12:01
+================================================================================
+[2026-02-16T20:12:30.249+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
