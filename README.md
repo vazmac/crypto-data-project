@@ -1,115 +1,43 @@
-# Crypto Data Project
+# 🚀 Crypto DataOps Pipeline: End-to-End Analytics Engineering
 
-Um pipeline de dados escalável para extração, transformação e carga (ELT) de dados de criptomoedas usando **Apache Airflow**, **PostgreSQL**, **MinIO (S3)** e **dbt**.
+![DataOps](https://img.shields.io/badge/Methodology-DataOps-blue)
+![Airflow](https://img.shields.io/badge/Orchestrator-Airflow_2.8.1-017CEE?logo=apacheairflow)
+![dbt](https://img.shields.io/badge/Transformation-dbt_core-FF694B?logo=dbt)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql)
+![Docker](https://img.shields.io/badge/Infrastructure-Docker-2496ED?logo=docker)
+![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?logo=githubactions)
 
-## 🏗️ Arquitetura
+## 📌 Visão Geral do Projeto
+Este projeto implementa uma arquitetura moderna de dados (Modern Data Stack) para extração, transformação e orquestração de métricas do mercado de criptomoedas (CoinGecko). Construído com uma mentalidade rigorosa de **DataOps**, o pipeline foca-se na escalabilidade, reprodutibilidade e isolamento de ambientes.
 
-```
-CoinGecko API → Airflow (Orquestração) → MinIO (Data Lake) → PostgreSQL (DW) → dbt (Transformação)
-```
+## 🏗️ Arquitetura e Fluxo de Dados (ETL/ELT)
 
-## 📁 Estrutura do Projeto
+1. **Extração (Python + Airflow):** Scripts em Python extraem dados da API e carregam-nos para o Data Lake (MinIO) e para a camada `raw` no PostgreSQL.
+2. **Transformação (dbt):** - **Silver Layer (`staging`):** Limpeza e normalização dos dados (Materializados como `views`).
+   - **Gold Layer (`marts`):** Criação de tabelas de factos e dimensões para reporting, como `fct_crypto_daily_metrics` (Materializados como `tables`).
+   - *Nota:* Utilização de uma macro customizada (`generate_schema_name`) para garantir a escrita limpa nos schemas de destino, sem prefixos.
+3. **Exportação:** Geração de um ficheiro `.csv` dinâmico isolado num volume local (`/exports`) para consumo seguro em ferramentas de BI (PowerBI).
 
-```
-crypto_data_project/
-├── dags/                          # DAGs do Airflow
-│   ├── watchlist_load.py         # Carrega top 15 moedas em tendência
-│   └── market_data_extraction.py # Extrai dados de mercado em lote
-├── scripts/init_db.sql           # Script de inicialização do banco
-├── dbt_project/                  # Modelos de transformação (dbt)
-├── docker-compose.yml            # Infraestrutura containerizada
-├── DockerFile                    # Imagem customizada do Airflow
-├── requirements.txt              # Dependências Python
-├── servers.json                  # Configuração PGAdmin
-└── .env                          # Variáveis de ambiente
-```
+## 🧠 Boas Práticas de DataOps Implementadas
 
-## 🚀 Quick Start
+- **Infraestrutura como Código (IaC):** Todo o ambiente é levantado via `docker-compose.yml` com mapeamento rigoroso de volumes.
+- **Microserviços:** Airflow dividido em processos independentes (`Webserver` e `Scheduler`) para garantir resiliência e evitar falhas em cascata.
+- **Dependency Pinning:** Ficheiro `requirements.txt` blindado (ex: `apache-airflow==2.8.1`) para evitar quebras por atualizações silenciosas (Dependency Hell).
+- **Separação de Preocupações (SoC):** Código de orquestração (`dags/`) e código de transformação (`coingecko_dw/`) vivem em diretórios paralelos para otimizar o *parsing* do Airflow.
+- **Integração Contínua (CI):** Pipeline configurado no GitHub Actions para levantar um Postgres efémero e validar a compilação do dbt (`dbt compile`) em cada *Push*/*Pull Request*.
 
-### 1. Pré-requisitos
-- Docker & Docker Compose
-- Windows PowerShell (para o script de inicialização)
+## 📂 Estrutura do Repositório
 
-### 2. Configurar Variáveis de Ambiente
-Cria um arquivo `.env` na raiz do projeto:
-
-```env
-POSTGRES_USER=airflow
-POSTGRES_PASSWORD=airflow123
-POSTGRES_DB=coingecko_dw
-POSTGRES_PORT=5432
-POSTGRES_HOST=postgres
-
-PGADMIN_DEFAULT_EMAIL=admin@admin.com
-PGADMIN_DEFAULT_PASSWORD=admin
-PGADMIN_PORT=5050
-
-MINIO_ROOT_USER=minioadmin
-MINIO_ROOT_PASSWORD=minioadmin
-MINIO_PORT_API=9000
-MINIO_PORT_CONSOLE=9001
-MINIO_BUCKET_NAME=coingecko-raw
-
-AIRFLOW_PORT=8080
-AIRFLOW_SECRET_KEY=your-secret-key-here
-AIRFLOW_ADMIN_USER=admin
-AIRFLOW_ADMIN_PASSWORD=admin
-AIRFLOW_ADMIN_EMAIL=admin@example.com
-
-COINGECKO_API_KEY=your-api-key
-COINGECKO_CURRENCY=eur
-COINGECKO_BASE_URL=https://api.coingecko.com/api/v3
-```
-
-### 3. Iniciar Infraestrutura (Windows)
-```powershell
-.\start_docker.ps1
-```
-
-Ou manualmente:
-```bash
-docker-compose up -d
-```
-
-## 🌐 Acessos
-
-| Serviço | URL |
-|---------|-----|
-| Airflow | http://localhost:8080 |
-| PGAdmin | http://localhost:5050 |
-| MinIO Console | http://localhost:9001 |
-
-## 📊 DAGs Disponíveis
-
-### `watchlist_load`
-- Extrai top 15 moedas em tendência do CoinGecko
-- Popula tabela `dh_raw.coin_watchlist`
-- **Frequência:** Uma única execução
-
-### `extraction`
-- Extrai dados de mercado de todas as moedas da watchlist
-- Transforma JSON → CSV e faz upload para MinIO
-- Carrega dados em `dh_raw.market_data` via COPY (bulk load)
-- **Frequência:** A cada hora
-
-## 🏢 Camadas de Dados
-
-```sql
-dh_raw       -- Dados brutos da API (ingestão)
-dh_silver    -- Dados limpos e normalizados
-dh_gold      -- Dados agregados para BI/Analytics
-```
-
-## 🔧 Tecnologias
-
-- **Apache Airflow 2.8** - Orquestração
-- **PostgreSQL 13** - Data Warehouse
-- **MinIO** - Data Lake (S3-compatible)
-- **dbt** - Transformação de dados
-- **Docker Compose** - Infraestrutura como código
-
-## 📝 Notas
-
-- Os dados são ingeridos em formato JSONB para máxima flexibilidade
-- Bulk insert via COPY command para performance
-- Retry automático com delay de 5 minutos em caso de falha
+```text
+├── .github/workflows/      # Pipelines de CI/CD (GitHub Actions)
+├── coingecko_dw/           # Projeto dbt (Transformação de Dados)
+│   ├── models/
+│   │   ├── staging/        # Modelos da camada Silver
+│   │   └── marts/          # Modelos da camada Gold
+│   └── macros/             # Macros Jinja (ex: custom schema names)
+├── dags/                   # DAGs do Airflow (Orquestração e Python Scripts)
+├── exports/                # Volume isolado com os outputs (CSVs) para o PowerBI
+├── docker-compose.yml      # Infraestrutura (Postgres, MinIO, Airflow)
+├── Dockerfile              # Imagem customizada do Airflow com dependências
+├── Makefile                # Atalhos para comandos Docker e dbt
+└── requirements.txt        # Dependências fixadas (Airflow, dbt, etc.)
