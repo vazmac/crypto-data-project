@@ -50,23 +50,23 @@ services:
       - minio_data:/data
 
   # 4. Airflow
-  airflow:
+  airflow-webserver:
     build:
       context: .
       dockerfile: DockerFile
-    container_name: crypto_airflow
-    tty: true
-    stdin_open: true
+    container_name: crypto_airflow_webserver
+    restart: always
+    env_file:
+      - .env
     environment:
-      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
-      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=sqlite:////opt/airflow/airflow.db
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${POSTGRES_DB}
       - AIRFLOW__CORE__LOAD_EXAMPLES=False
       - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW_SECRET_KEY}
     # --- AUTOMATIC CONNECTIONS (IaC) ---
       # Cria a conexão ao postgres automaticamente
       - AIRFLOW_CONN_POSTGRES_DW=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
       # Cria a conexão 'minio_s3_conn' automaticamente (AWS Type)
-      # O formato URL é complexo, por isso usamos JSON na variável Conn URI
       - AIRFLOW_CONN_MINIO_S3_CONN=aws://${MINIO_ROOT_USER}:${MINIO_ROOT_PASSWORD}@?endpoint_url=http%3A%2F%2Fminio%3A${MINIO_PORT_API}
       - DATA_LAKE_BUCKET=${MINIO_BUCKET_NAME}
       - AIRFLOW_VAR_COINGECKO_API_KEY=${COINGECKO_API_KEY}
@@ -76,15 +76,52 @@ services:
       - ./dags:/opt/airflow/dags
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
-      - ./dbt_project:/opt/airflow/dbt_project
+      - ./transform_crypto:/opt/airflow/transform_crypto
+      - ./dashboard_data:/opt/airflow/dashboard_data
     ports:
       - "${AIRFLOW_PORT}:${AIRFLOW_PORT}"
     command: >
-      bash -c "airflow db init && 
+      bash -c "airflow db upgrade && 
       airflow users create --username ${AIRFLOW_ADMIN_USER} --firstname Admin --lastname User --role Admin --email ${AIRFLOW_ADMIN_EMAIL} --password ${AIRFLOW_ADMIN_PASSWORD} || true && 
-      airflow webserver --port ${AIRFLOW_PORT} -D && 
-      airflow scheduler"
+      airflow webserver --port ${AIRFLOW_PORT} -D"
     depends_on:
+      postgres:
+        condition: service_healthy
+      minio:
+        condition: service_healthy
+
+  airflow-scheduler:
+    build:
+      context: .
+      dockerfile: DockerFile
+    container_name: crypto_airflow_scheduler
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=LocalExecutor
+      - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:${POSTGRES_PORT}/${POSTGRES_DB}
+      - AIRFLOW__CORE__LOAD_EXAMPLES=False
+      - AIRFLOW__WEBSERVER__SECRET_KEY=${AIRFLOW_SECRET_KEY}
+    # --- AUTOMATIC CONNECTIONS (IaC) ---
+      # Cria a conexão ao postgres automaticamente
+      - AIRFLOW_CONN_POSTGRES_DW=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
+      # Cria a conexão 'minio_s3_conn' automaticamente (AWS Type)
+      - AIRFLOW_CONN_MINIO_S3_CONN=aws://${MINIO_ROOT_USER}:${MINIO_ROOT_PASSWORD}@?endpoint_url=http%3A%2F%2Fminio%3A${MINIO_PORT_API}
+      - DATA_LAKE_BUCKET=${MINIO_BUCKET_NAME}
+      - AIRFLOW_VAR_COINGECKO_API_KEY=${COINGECKO_API_KEY}
+      - AIRFLOW_VAR_COINGECKO_CURRENCY=${COINGECKO_CURRENCY}
+      - COINGECKO_BASE_URL=${COINGECKO_BASE_URL}
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./logs:/opt/airflow/logs
+      - ./plugins:/opt/airflow/plugins
+      - ./transform_crypto:/opt/airflow/transform_crypto
+      - ./dashboard_data:/opt/airflow/dashboard_data
+    command: bash -c "sleep 20 && airflow scheduler"
+    depends_on:
+      airflow-webserver:
+        condition: service_started
       postgres:
         condition: service_healthy
       minio:

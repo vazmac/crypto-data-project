@@ -1,15 +1,48 @@
 # Variáveis
-CONTAINER_NAME = crypto_airflow
-DBT_DIR = dags/coingecko_dw
+CONTAINER_NAME = crypto_airflow_webserver
+DBT_DIR = transform_crypto
 
 .PHONY: help
 help:
-	@echo "🛠️  Comandos do Projeto Crypto Data:"
-	@echo "   make dbt-check   -> Verifica a conexão do dbt"
-	@echo "   make dbt-run     -> Corre os modelos (dbt run)"
-	@echo "   make dbt-test    -> Corre os testes (dbt test)"
-	@echo "   make dbt-doc     -> Gera e serve a documentação"
-	@echo "   make bash        -> Entra no terminal do Airflow"
+	@echo "Comandos Disponiveis:"
+	@echo "   --- Infraestrutura (Docker) ---"
+	@echo "   make up       -> Inicia o projeto em background"
+	@echo "   make build    -> Constroi as imagens (docker build)"
+	@echo "   make down     -> Para os containers"
+	@echo "   make clean    -> Para e remove containers e volumes (Base de Dados)"
+	@echo "   make logs     -> Mostra os logs em tempo real"
+	@echo "   make restart  -> Reinicia os servicos (down + up)"
+	@echo ""
+	@echo "   --- dbt (Transformacao) ---"
+	@echo "   make dbt-check    -> Verifica a conexao do dbt (debug)"
+	@echo "   make dbt-run      -> Executa os modelos (dbt run)"
+	@echo "   make dbt-test     -> Executa os testes (dbt test)"
+	@echo "   make dbt-full     -> Executa com full-refresh"
+	@echo "   make dbt-doc      -> Gera a documentacao do dbt"
+	@echo "   make bash         -> Acede ao terminal do container Airflow"
+
+# --- Comandos Docker ---
+
+up:
+	docker-compose up -d
+	@echo "Servicos iniciados."
+
+build:
+	docker-compose build
+	@echo "Build concluido."
+
+down:
+	docker-compose down
+	@echo "Servicos parados."
+
+clean:
+	docker-compose down -v --remove-orphans
+	@echo "Limpeza concluida."
+
+restart: down up
+
+logs:
+	docker-compose logs -f
 
 # --- Comandos dbt para executar em ambiente dev via container airflow (em vez de ter dbt instalado localmente)---
 

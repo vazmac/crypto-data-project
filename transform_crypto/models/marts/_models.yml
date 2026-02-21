@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: fct_daily_metrics
+    description: "Tabela de factos diária com métricas e médias móveis (Gold Layer)."
+    columns:
+      - name: fact_id
+        description: "Chave primária única gerada por MD5."
+        tests:
+          - unique
+          - not_null
+      - name: coin_id
+        description: "Identificador da moeda."
+      - name: metric_date
+        description: "Data de fecho das métricas."

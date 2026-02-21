@@ -12,9 +12,12 @@ import os
 
 # --- CONFIGURAÇÕES ---
 BUCKET_NAME = os.getenv("DATA_LAKE_BUCKET")
-API_KEY = Variable.get("coingecko_api_key", default_var=None)
-CURRENCY = Variable.get("coingecko_currency", default_var="eur")
+API_KEY = Variable.get("COINGECKO_API_KEY", default_var=None)
+CURRENCY = Variable.get("COINGECKO_CURRENCY", default_var="eur")
 BASE_URL = os.getenv("COINGECKO_BASE_URL")
+SCHEMA_LANDING = "raw"
+TABELA_WATCHLIST = "coin_watchlist"
+TABELA_MARKET_DATA = "market_data"
 
 default_args = {
     'owner': 'airflow',
@@ -31,7 +34,7 @@ def extract_and_transform_to_csv(**context):
     """
     # --- A. Obter Moedas da Watchlist ---
     pg_hook = PostgresHook(postgres_conn_id='postgres_dw')
-    records = pg_hook.get_records("SELECT coin_id FROM dh_raw.coin_watchlist;")
+    records = pg_hook.get_records(f"SELECT coin_id FROM {SCHEMA_LANDING}.{TABELA_WATCHLIST};")
     
     if not records:
         print("⚠️ Watchlist vazia! Corre o DAG watchlist_load primeiro.")
@@ -128,8 +131,8 @@ def load_csv_to_postgres(**context):
     cursor = conn.cursor()
     
     # O comando mágico que faz o mapeamento CSV -> Tabela
-    sql = """
-        COPY dh_raw.market_data (coin_id, vs_currency, ingested_at, last_updated, coin_data)
+    sql = f"""
+        COPY {SCHEMA_LANDING}.{TABELA_MARKET_DATA} (coin_id, vs_currency, ingested_at, last_updated, coin_data)
         FROM STDIN WITH (FORMAT CSV, HEADER FALSE, DELIMITER ',', QUOTE '"');
     """
     
@@ -150,7 +153,7 @@ with DAG(
     'extraction',
     default_args=default_args,
     description='Pipeline Escalável: API -> CSV(S3) -> COPY(Postgres)',
-    schedule_interval='@hourly',
+    schedule_interval=None, # Este DAG é triggerado pelo DAG principal (market_data_extraction.py)
     start_date=datetime(2024, 1, 1),
     catchup=False,
     tags=['production', 'extraction', 'market_data']

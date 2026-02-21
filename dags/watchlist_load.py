@@ -13,6 +13,8 @@ import os
 BUCKET_NAME = os.getenv("DATA_LAKE_BUCKET", "coingecko-raw")
 BASE_URL = os.getenv("COINGECKO_BASE_URL", "https://api.coingecko.com/api/v3")
 API_KEY = Variable.get("coingecko_api_key", default_var=None)
+SCHEMA_LANDING = "raw"
+TABELA_WATCHLIST = "coin_watchlist"
 
 default_args = {
     'owner': 'airflow',
@@ -92,8 +94,8 @@ def create_watchlist_from_s3(**context):
     cursor = conn.cursor()
     
     # Query Inteligente: Tenta inserir, se já existir (conflito de ID), não faz nada.
-    insert_query = """
-        INSERT INTO dh_raw.coin_watchlist (coin_id, name, symbol, market_cap_rank, ingested_at)
+    insert_query = f"""
+        INSERT INTO {SCHEMA_LANDING}.{TABELA_WATCHLIST} (coin_id, name, symbol, market_cap_rank, ingested_at)
         VALUES (%s, %s, %s, %s, NOW())
         ON CONFLICT (coin_id) DO NOTHING;
     """

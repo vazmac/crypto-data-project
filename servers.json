@@ -4,7 +4,7 @@
             "Name": "Crypto Warehouse (Docker)",
             "Group": "Servers",
             "Port": 5432,
-            "Username": "airflow",
+            "Username": "postgres",
             "Host": "postgres",
             "SSLMode": "prefer",
             "MaintenanceDB": "coingecko_dw"

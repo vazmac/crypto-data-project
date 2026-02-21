@@ -1,0 +1,70 @@
+name: dbt CI/CD Pipeline
+
+# O robô acorda sempre que fizeres um push para o GitHub
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  dbt-compile-and-test:
+    runs-on: ubuntu-latest
+
+    # 1. Levantamos um Postgres temporário só para o robô testar!
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: github_user
+          POSTGRES_PASSWORD: github_password
+          POSTGRES_DB: ci_db
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: 📥 Checkout do Código
+        uses: actions/checkout@v3
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: 📦 Instalar dbt-postgres
+        run: pip install dbt-postgres
+
+      - name: ⚙️ Configurar profiles.yml para o GitHub
+        # O GitHub precisa de um profile temporário para falar com o Postgres dele
+        run: |
+          mkdir -p ~/.dbt
+          cat << 'EOF' > ~/.dbt/profiles.yml
+          coingecko_dw:
+            target: ci
+            outputs:
+              ci:
+                type: postgres
+                threads: 1
+                host: localhost
+                port: 5432
+                user: github_user
+                password: github_password
+                dbname: ci_db
+                schema: public
+          EOF
+
+      - name: 🔍 dbt deps (Instalar dependências se existirem)
+        run: dbt deps
+        working-dir: ./dbt_project
+
+      - name: 🛠️ dbt compile (Garantir que o SQL não tem erros de sintaxe)
+        # O comando compile é perfeito para CI: verifica a lógica Jinja e SQL sem precisar de dados reais!
+        run: dbt compile
+        working-dir: ./dbt_project

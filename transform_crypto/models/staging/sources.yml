@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: coingecko        # Nome que vamos usar no código {{ source('coingecko', ...) }}
+    database: coingecko_dw # Nome real da base de dados
+    schema: raw         # Schema onde o Airflow escreve
+    loader: airflow
+    
+    tables:
+      - name: market_data
+        description: "Dados históricos de mercado em formato JSON"
+        loaded_at_field: ingested_at
+        
+      - name: coin_watchlist
+        description: "Lista de moedas que estamos a monitorizar"
