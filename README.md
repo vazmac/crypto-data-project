@@ -45,15 +45,33 @@ Num cenário corporativo, as escolhas tecnológicas devem equilibrar performance
 ## 📂 Estrutura do Repositório
 
 ```text
-├── .github/workflows/      # Pipelines de CI/CD (Testes automatizados na Cloud)
-├── coingecko_dw/           # Projeto dbt (Transformação de Dados)
+crypto_data_project/
+├── .github/workflows/      # Pipeline de CI/CD (simulação de ambiente empresarial)
+├── dags/                   # DAGs do Airflow e scripts de extração Python
+│   ├── market_data_extraction.py  # Extração de dados de mercado
+│   ├── serve_crypto.py             # Extração de dados maturados em formato CSV para enviar para a equipa responsável por PowerBI
+│   ├── watchlist_load.py          # Lista fixa de cryptomoedas a analisar
+│   └── logs/
+├── transform_crypto/       # Projeto dbt (Transformação de Dados)
 │   ├── models/
 │   │   ├── staging/        # Modelos da camada Silver
 │   │   └── marts/          # Modelos da camada Gold
-│   └── macros/             # Macros Jinja personalizadas
-├── dags/                   # DAGs do Airflow e scripts de extração Python
-├── exports/                # Volume isolado de entrega de dados (Data Marts em CSV)
+│   ├── macros/             # Macros Jinja personalizadas
+│   ├── tests/
+│   ├── seeds/
+│   ├── snapshots/
+│   ├── dbt_project.yml
+│   ├── profiles.yml
+│   └── logs/
+├── scripts/                # Scripts de inicialização com criação de schema e tabelas raw necessárias
+│   └── init_db.sql
+├── plugins/                
+├── dashboard_data/         # Volume isolado de entrega de dados (Exports em CSV)
+│   └── crypto_dashboard_2026-02-21.csv
+├── logs/                   # Logs dos DAGs executados
 ├── docker-compose.yml      # Infraestrutura IaC (Postgres, MinIO, Airflow)
 ├── Dockerfile              # Imagem customizada para orquestração
 ├── Makefile                # Automação de comandos do ciclo de vida local
-└── requirements.txt        # Dependências de ambiente blindadas
+├── requirements.txt        # Dependências de ambiente
+├── servers.json            # Configuração de servidores
+└── README.md               # Documentação do projeto
