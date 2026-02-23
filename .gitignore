@@ -27,9 +27,14 @@ wheels/
 # Airflow
 airflow.db
 logs/
+dags/logs/
 dags.pickle
 webserver_config.py
 .airflow/
+
+# dbt
+transform_crypto/logs/
+target/
 
 # Docker
 .docker
