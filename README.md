@@ -69,9 +69,9 @@ crypto_data_project/
 ├── dashboard_data/         # Volume isolado de entrega de dados (Exports em CSV)
 │   └── crypto_dashboard_2026-02-21.csv
 ├── logs/                   # Logs dos DAGs executados
-├── docker-compose.yml      # Infraestrutura IaC (Postgres, MinIO, Airflow)
-├── Dockerfile              # Imagem customizada para orquestração
+├── docker-compose.yml      # Infraestrutura IaC (Postgres, PGAdmin, MinIO, Airflow)
+├── Dockerfile              # Imagem customizada de Airflow
 ├── Makefile                # Automação de comandos do ciclo de vida local
 ├── requirements.txt        # Dependências de ambiente
-├── servers.json            # Configuração de servidores
+├── servers.json            # Configuração de servidor e db no PGAdmin
 └── README.md               # Documentação do projeto
