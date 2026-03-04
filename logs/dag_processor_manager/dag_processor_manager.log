@@ -8909,3 +8909,522 @@ File Path                                           PID  Runtime      # DAGs    
 /opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.30s           2026-02-28T12:46:12
 ================================================================================
 [2026-02-28T12:46:53.566+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2026-03-02T19:57:59.776+0000] {manager.py:469} INFO - Processing files using up to 2 processes at a time 
+[2026-03-02T19:57:59.778+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2026-03-02T19:57:59.779+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-03-02T19:57:59.780+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T19:57:59.913+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T19:58:00.605+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/crypto_daily_pipeline.py          177  0.03s             0           0
+/opt/airflow/dags/watchlist_load_dag.py                                    0           0
+/opt/airflow/dags/scripts/extract_market_data.py    174  0.06s             0           0
+================================================================================
+[2026-03-02T19:58:31.102+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    262  0.03s             0           0  0.10s           2026-03-02T19:58:00
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  1.44s           2026-03-02T19:58:02
+/opt/airflow/dags/watchlist_load_dag.py             265  0.01s             1           0  0.16s           2026-03-02T19:58:00
+================================================================================
+[2026-03-02T19:59:01.472+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    278  0.01s             0           0  0.10s           2026-03-02T19:58:31
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.96s           2026-03-02T19:58:33
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.49s           2026-03-02T19:58:31
+================================================================================
+[2026-03-02T19:59:31.806+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    294  0.01s             0           0  0.11s           2026-03-02T19:59:01
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.89s           2026-03-02T19:59:04
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.23s           2026-03-02T19:59:02
+================================================================================
+[2026-03-02T20:00:02.106+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    310  0.01s             0           0  0.11s           2026-03-02T19:59:31
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.86s           2026-03-02T19:59:35
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.24s           2026-03-02T19:59:33
+================================================================================
+[2026-03-02T20:00:32.380+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    326  0.01s             0           0  0.09s           2026-03-02T20:00:02
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.87s           2026-03-02T20:00:07
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.49s           2026-03-02T20:00:03
+================================================================================
+[2026-03-02T20:01:02.700+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    342  0.01s             0           0  0.10s           2026-03-02T20:00:32
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.89s           2026-03-02T20:00:38
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.40s           2026-03-02T20:00:34
+================================================================================
+[2026-03-02T20:01:32.989+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    358  0.01s             0           0  0.10s           2026-03-02T20:01:02
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.88s           2026-03-02T20:01:09
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.21s           2026-03-02T20:01:05
+================================================================================
+[2026-03-02T20:02:03.265+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    374  0.01s             0           0  0.09s           2026-03-02T20:01:33
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.86s           2026-03-02T20:01:41
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.26s           2026-03-02T20:01:35
+================================================================================
+[2026-03-02T20:02:33.554+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    390  0.01s             0           0  0.10s           2026-03-02T20:02:03
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.86s           2026-03-02T20:02:12
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.20s           2026-03-02T20:02:05
+================================================================================
+[2026-03-02T20:02:59.886+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T20:03:00.072+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T20:03:04.185+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    406  0.01s             0           0  0.10s           2026-03-02T20:02:33
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.96s           2026-03-02T20:02:43
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.25s           2026-03-02T20:02:35
+================================================================================
+[2026-03-02T20:03:34.483+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    422  0.01s             0           0  0.10s           2026-03-02T20:03:04
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.85s           2026-03-02T20:03:15
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.30s           2026-03-02T20:03:06
+================================================================================
+[2026-03-02T20:04:04.909+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    438  0.01s             0           0  0.11s           2026-03-02T20:03:34
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.95s           2026-03-02T20:03:46
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.26s           2026-03-02T20:03:36
+================================================================================
+[2026-03-02T20:04:35.258+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    464  0.01s             0           0  0.14s           2026-03-02T20:04:05
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.87s           2026-03-02T20:04:18
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.28s           2026-03-02T20:04:07
+================================================================================
+[2026-03-02T20:05:05.418+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    511  0.01s             0           0  0.09s           2026-03-02T20:04:35
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.77s           2026-03-02T20:04:49
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.18s           2026-03-02T20:04:37
+================================================================================
+[2026-03-02T20:05:35.850+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    527  0.01s             0           0  0.10s           2026-03-02T20:05:05
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.92s           2026-03-02T20:05:20
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.25s           2026-03-02T20:05:07
+================================================================================
+[2026-03-02T20:06:06.164+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    543  0.01s             0           0  0.10s           2026-03-02T20:05:35
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.87s           2026-03-02T20:05:51
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.23s           2026-03-02T20:05:38
+================================================================================
+[2026-03-02T20:06:36.544+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    559  0.02s             0           0  0.10s           2026-03-02T20:06:06
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.92s           2026-03-02T20:06:23
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.28s           2026-03-02T20:06:08
+================================================================================
+[2026-03-02T20:07:07.008+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    575  0.01s             0           0  0.15s           2026-03-02T20:06:36
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.92s           2026-03-02T20:06:54
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.21s           2026-03-02T20:06:38
+================================================================================
+[2026-03-02T20:07:37.376+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    591  0.01s             0           0  0.11s           2026-03-02T20:07:07
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.91s           2026-03-02T20:07:26
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.26s           2026-03-02T20:07:09
+================================================================================
+[2026-03-02T20:08:00.769+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T20:08:00.975+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T20:08:08.100+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    607  0.01s             0           0  0.16s           2026-03-02T20:07:37
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.93s           2026-03-02T20:07:57
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.24s           2026-03-02T20:07:39
+================================================================================
+[2026-03-02T20:08:38.544+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    623  0.01s             0           0  0.11s           2026-03-02T20:08:08
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.98s           2026-03-02T20:08:29
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.26s           2026-03-02T20:08:10
+================================================================================
+[2026-03-02T20:09:08.991+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    639  0.01s             0           0  0.14s           2026-03-02T20:08:38
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.96s           2026-03-02T20:09:00
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.27s           2026-03-02T20:08:40
+================================================================================
+[2026-03-02T20:09:39.396+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    655  0.01s             0           0  0.12s           2026-03-02T20:09:09
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.91s           2026-03-02T20:09:32
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.28s           2026-03-02T20:09:11
+================================================================================
+[2026-03-02T20:10:09.739+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    671  0.01s             0           0  0.11s           2026-03-02T20:09:39
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.88s           2026-03-02T20:10:03
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.24s           2026-03-02T20:09:41
+================================================================================
+[2026-03-02T20:10:40.144+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    687  0.01s             0           0  0.10s           2026-03-02T20:10:09
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.92s           2026-03-02T20:10:35
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.25s           2026-03-02T20:10:12
+================================================================================
+[2026-03-02T20:11:10.553+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    703  0.01s             0           0  0.10s           2026-03-02T20:10:40
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.98s           2026-03-02T20:11:06
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.24s           2026-03-02T20:10:42
+================================================================================
+[2026-03-02T20:11:40.902+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    719  0.01s             0           0  0.10s           2026-03-02T20:11:10
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.84s           2026-03-02T20:11:37
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.22s           2026-03-02T20:11:12
+================================================================================
+[2026-03-02T20:12:11.230+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    735  0.01s             0           0  0.09s           2026-03-02T20:11:40
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.89s           2026-03-02T20:12:09
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.24s           2026-03-02T20:11:43
+================================================================================
+[2026-03-02T20:12:41.593+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    751  0.01s             0           0  0.10s           2026-03-02T20:12:11
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.85s           2026-03-02T20:12:40
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.28s           2026-03-02T20:12:13
+================================================================================
+[2026-03-02T20:13:00.915+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-02T20:13:01.126+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-02T20:13:12.161+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    767  0.01s             0           0  0.10s           2026-03-02T20:12:41
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.86s           2026-03-02T20:13:12
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.24s           2026-03-02T20:12:43
+================================================================================
+[2026-03-02T20:13:42.654+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    777  0.03s             0           0  0.10s           2026-03-02T20:13:12
+/opt/airflow/dags/crypto_daily_pipeline.py          780  0.01s             1           0  0.86s           2026-03-02T20:13:12
+/opt/airflow/dags/watchlist_load_dag.py                                    1           0  0.26s           2026-03-02T20:13:14
+================================================================================
+[2026-03-02T20:14:12.289+0000] {manager.py:451} INFO - Exiting gracefully upon receiving signal 15
+[2026-03-04T20:05:43.461+0000] {manager.py:469} INFO - Processing files using up to 2 processes at a time 
+[2026-03-04T20:05:43.462+0000] {manager.py:470} INFO - Process each file at most once every 30 seconds
+[2026-03-04T20:05:43.463+0000] {manager.py:471} INFO - Checking for new files in /opt/airflow/dags every 300 seconds
+[2026-03-04T20:05:43.464+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-04T20:05:43.568+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-04T20:05:44.057+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  ----------
+/opt/airflow/dags/crypto_daily_pipeline.py          176  0.02s             0           0
+/opt/airflow/dags/watchlist_load_dag.py                                    0           0
+/opt/airflow/dags/scripts/extract_market_data.py    173  0.04s             0           0
+================================================================================
+[2026-03-04T20:06:14.299+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    229  0.02s             0           0  0.07s           2026-03-04T20:05:44
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  1.18s           2026-03-04T20:05:45
+/opt/airflow/dags/watchlist_load_dag.py             232  0.00s             1           0  0.14s           2026-03-04T20:05:44
+================================================================================
+[2026-03-04T20:06:44.801+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    245  0.01s             0           0  0.06s           2026-03-04T20:06:14
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.56s           2026-03-04T20:06:15
+/opt/airflow/dags/watchlist_load_dag.py             248  0.00s             1           0  0.29s           2026-03-04T20:06:14
+================================================================================
+[2026-03-04T20:07:15.141+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    261  0.02s             0           0  0.06s           2026-03-04T20:06:44
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.57s           2026-03-04T20:06:46
+/opt/airflow/dags/watchlist_load_dag.py             264  0.00s             1           0  0.13s           2026-03-04T20:06:44
+================================================================================
+[2026-03-04T20:07:45.459+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    277  0.01s             0           0  0.06s           2026-03-04T20:07:15
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.51s           2026-03-04T20:07:17
+/opt/airflow/dags/watchlist_load_dag.py             280  0.00s             1           0  0.12s           2026-03-04T20:07:15
+================================================================================
+[2026-03-04T20:08:15.761+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    293  0.01s             0           0  0.06s           2026-03-04T20:07:45
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.52s           2026-03-04T20:07:49
+/opt/airflow/dags/watchlist_load_dag.py             296  0.00s             1           0  0.11s           2026-03-04T20:07:45
+================================================================================
+[2026-03-04T20:08:46.063+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    309  0.02s             0           0  0.05s           2026-03-04T20:08:15
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.56s           2026-03-04T20:08:20
+/opt/airflow/dags/watchlist_load_dag.py             312  0.00s             1           0  0.11s           2026-03-04T20:08:15
+================================================================================
+[2026-03-04T20:09:16.368+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    325  0.01s             0           0  0.06s           2026-03-04T20:08:46
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.54s           2026-03-04T20:08:51
+/opt/airflow/dags/watchlist_load_dag.py             328  0.00s             1           0  0.11s           2026-03-04T20:08:46
+================================================================================
+[2026-03-04T20:09:46.698+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    341  0.02s             0           0  0.06s           2026-03-04T20:09:16
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.52s           2026-03-04T20:09:22
+/opt/airflow/dags/watchlist_load_dag.py             344  0.00s             1           0  0.12s           2026-03-04T20:09:16
+================================================================================
+[2026-03-04T20:10:17.029+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    357  0.01s             0           0  0.06s           2026-03-04T20:09:46
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.64s           2026-03-04T20:09:54
+/opt/airflow/dags/watchlist_load_dag.py             360  0.00s             1           0  0.14s           2026-03-04T20:09:46
+================================================================================
+[2026-03-04T20:10:43.756+0000] {manager.py:738} INFO - Searching for files in /opt/airflow/dags
+[2026-03-04T20:10:43.850+0000] {manager.py:741} INFO - There are 3 files in /opt/airflow/dags
+[2026-03-04T20:10:47.345+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    373  0.02s             0           0  0.05s           2026-03-04T20:10:17
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.51s           2026-03-04T20:10:25
+/opt/airflow/dags/watchlist_load_dag.py             376  0.00s             1           0  0.12s           2026-03-04T20:10:17
+================================================================================
+[2026-03-04T20:11:17.670+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    389  0.02s             0           0  0.05s           2026-03-04T20:10:47
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.50s           2026-03-04T20:10:56
+/opt/airflow/dags/watchlist_load_dag.py             392  0.00s             1           0  0.12s           2026-03-04T20:10:47
+================================================================================
+[2026-03-04T20:11:47.994+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    405  0.01s             0           0  0.05s           2026-03-04T20:11:17
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.50s           2026-03-04T20:11:28
+/opt/airflow/dags/watchlist_load_dag.py             408  0.00s             1           0  0.12s           2026-03-04T20:11:17
+================================================================================
+[2026-03-04T20:12:18.315+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    421  0.02s             0           0  0.05s           2026-03-04T20:11:48
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.52s           2026-03-04T20:11:59
+/opt/airflow/dags/watchlist_load_dag.py             424  0.01s             1           0  0.12s           2026-03-04T20:11:48
+================================================================================
+[2026-03-04T20:12:48.676+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    478  0.02s             0           0  0.07s           2026-03-04T20:12:18
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.54s           2026-03-04T20:12:30
+/opt/airflow/dags/watchlist_load_dag.py             481  0.00s             1           0  0.15s           2026-03-04T20:12:18
+================================================================================
+[2026-03-04T20:13:19.002+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    494  0.01s             0           0  0.05s           2026-03-04T20:12:48
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.50s           2026-03-04T20:13:02
+/opt/airflow/dags/watchlist_load_dag.py             497  0.00s             1           0  0.11s           2026-03-04T20:12:48
+================================================================================
+[2026-03-04T20:13:49.335+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    510  0.01s             0           0  0.05s           2026-03-04T20:13:19
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.48s           2026-03-04T20:13:33
+/opt/airflow/dags/watchlist_load_dag.py             513  0.00s             1           0  0.12s           2026-03-04T20:13:19
+================================================================================
+[2026-03-04T20:14:19.658+0000] {manager.py:879} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                           PID  Runtime      # DAGs    # Errors  Last Runtime    Last Run
+------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/opt/airflow/dags/scripts/extract_market_data.py    526  0.01s             0           0  0.05s           2026-03-04T20:13:49
+/opt/airflow/dags/crypto_daily_pipeline.py                                 1           0  0.46s           2026-03-04T20:14:04
+/opt/airflow/dags/watchlist_load_dag.py             529  0.00s             1           0  0.10s           2026-03-04T20:13:49
+================================================================================
