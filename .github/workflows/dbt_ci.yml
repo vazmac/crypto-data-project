@@ -62,9 +62,9 @@ jobs:
 
       - name: 🔍 dbt deps (Instalar dependências se existirem)
         run: dbt deps
-        working-dir: ./transform_crypto
+        working-directory: ./transform_crypto
 
       - name: 🛠️ dbt compile (Garantir que o SQL não tem erros de sintaxe)
         # O comando compile é perfeito para CI: verifica a lógica Jinja e SQL sem precisar de dados reais!
         run: dbt compile
-        working-dir: ./transform_crypto
+        working-directory: ./transform_crypto
