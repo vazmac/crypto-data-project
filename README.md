@@ -31,7 +31,7 @@ O projeto foi desenhado seguindo as melhores práticas da indústria (**Medallio
 
 A DAG do Airflow está dividida em 4 fases lógicas utilizando `TaskGroups`:
 
-1. **Extract (Data Lake):** * Extração diária das APIs e armazenamento seguro no MinIO (S3).
+1. **Extract (Data Lake):** * Extração diária das APIs com validação de schema e armazenamento seguro no MinIO (S3).
    * Atualização dinâmica da *Watchlist* de moedas ativas através de um MERGE (SCD Tipo 1).
 2. **Load (Postgres Raw):** * Ingestão eficiente utilizando `StringIO` e `COPY EXPERT` em memória (Schema-on-Read), sem criar ficheiros físicos intermédios.
 3. **Transform (dbt via Cosmos):** * Orquestração nativa dos modelos `.sql` do dbt diretamente no Airflow usando a biblioteca `astronomer-cosmos`.
