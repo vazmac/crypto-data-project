@@ -65,6 +65,7 @@ A DAG do Airflow está dividida em 4 fases lógicas utilizando `TaskGroups`:
 3. Inicie a infraestrutura:
    ```bash
    make build
+   make up
 
 4. Aceda à UI do Airflow em http://localhost:8080 (admin / admin).
 
