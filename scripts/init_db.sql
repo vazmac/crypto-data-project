@@ -1,24 +1,34 @@
 -- Criar os schemas
 CREATE SCHEMA IF NOT EXISTS raw;
 
--- Criar tabela com lista de moedas a monitorar (Top 15 trending coins da API do CoinGecko na primeira execução)
-CREATE TABLE IF NOT EXISTS raw.coin_watchlist (
-    coin_id VARCHAR(100) PRIMARY KEY,
-    name VARCHAR(255),
-    symbol VARCHAR(50),
-    market_cap_rank INT,
-    ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+-- Criar tabela com lista de moedas a monitorar
+CREATE TABLE IF NOT EXISTS raw.cfg_watchlist (
+    symbol VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100),
+    is_active BOOLEAN,
+    last_updated TIMESTAMP
 );
 
--- Tabela de Factos: Dados de mercado das criptomoedas (preço, volume, etc) em formato JSONB
-CREATE TABLE IF NOT EXISTS raw.market_data (
+-- Tabela para os dados raw de Sustentabilidade
+CREATE TABLE IF NOT EXISTS raw.esg_data (
     id SERIAL PRIMARY KEY,
-    coin_id VARCHAR(100) NOT NULL,
-    vs_currency VARCHAR(10) DEFAULT 'eur',
-    last_updated TIMESTAMP,
-    coin_data JSONB,
+    symbol VARCHAR(50),
+    esg_data JSONB,
     ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX IF NOT EXISTS idx_market_data_coin_time 
-ON raw.market_data (coin_id, ingested_at DESC);
+-- Tabela para os dados raw de mercado da CoinGecko
+CREATE TABLE IF NOT EXISTS raw.coingecko_market_data (
+    id SERIAL PRIMARY KEY,
+    symbol VARCHAR(50) NOT NULL,
+    vs_currency VARCHAR(10) DEFAULT 'usd',
+    last_updated TIMESTAMP,
+    market_data JSONB,
+    ingested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_esg_data_symbol 
+ON raw.esg_data (symbol, ingested_at);
+
+CREATE INDEX IF NOT EXISTS idx_coingecko_market_data_symbol 
+ON raw.coingecko_market_data (symbol, ingested_at);

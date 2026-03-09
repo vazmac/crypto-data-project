@@ -7,7 +7,7 @@
             "Username": "postgres",
             "Host": "postgres",
             "SSLMode": "prefer",
-            "MaintenanceDB": "coingecko_dw"
+            "MaintenanceDB": "crypto_dw"
         }
     }
 }

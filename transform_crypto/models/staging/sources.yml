@@ -1,15 +1,20 @@
 version: 2
 
 sources:
-  - name: coingecko        # Nome que vamos usar no código {{ source('coingecko', ...) }}
-    database: coingecko_dw # Nome real da base de dados
+  - name: raw_data        # Nome que vamos usar no código {{ source('coingecko', ...) }}
+    database: crypto_dw # Nome real da base de dados
     schema: raw         # Schema onde o Airflow escreve
     loader: airflow
     
     tables:
-      - name: market_data
-        description: "Dados históricos de mercado em formato JSON"
+      - name: esg_data
+        description: "Dados ESG de criptomoedas em formato JSON"
         loaded_at_field: ingested_at
         
-      - name: coin_watchlist
-        description: "Lista de moedas que estamos a monitorizar"
+      - name: coingecko_market_data
+        description: "Dados de mercado das criptomoedas extraídos da API CoinGecko"
+        loaded_at_field: ingested_at
+
+      - name: cfg_watchlist
+        description: "Configurações de monitoramento para criptomoedas específicas"
+        loaded_at_field: last_updated

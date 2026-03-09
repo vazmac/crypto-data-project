@@ -1,0 +1,72 @@
+version: 2
+
+models:
+  - name: stg_esg_data
+    description: "Modelo Staging para os dados de sustentabilidade (ESG)."
+    columns:
+      - name: raw_esg_id
+        description: "Chave primária vinda da tabela raw."
+        tests:
+          - unique
+          - not_null
+      - name: symbol
+        description: "Símbolo da criptomoeda (ex: btc)."
+        tests:
+          - not_null
+          - unique
+      - name: ingested_at
+        description: "Timestamp de quando o dado foi extraído e inserido no Data Lake."
+        tests:
+          - not_null
+      - name: electrical_power_kw
+        description: "Potência elétrica em kW."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: electricity_consumption_kwh
+        description: "Consumo de eletricidade em kWh."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: co2_emissions_kg
+        description: "Emissões de CO2 em kg."
+        tests:
+          - is_greater_or_equal_to_zero
+
+  - name: stg_coingecko_market_data
+    description: "Modelo Staging para os dados financeiros diários extraídos da CoinGecko."
+    columns:
+      - name: raw_market_id
+        description: "Chave primária vinda da tabela raw."
+        tests:
+          - unique
+          - not_null
+      - name: symbol
+        description: "Símbolo da criptomoeda normalizado."
+        tests:
+          - not_null
+          - unique
+      - name: currency
+        description: "Moeda de referência (ex: USD)."
+      - name: ingested_at
+        description: "Timestamp de quando o dado foi extraído e inserido no Data Lake."
+      - name: current_price
+        description: "Preço atual da criptomoeda."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: market_cap
+        description: "Capitalização de mercado da criptomoeda."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: total_volume
+        description: "Volume total de negociação da criptomoeda."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: high_24h
+        description: "Preço mais alto nas últimas 24 horas."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: low_24h
+        description: "Preço mais baixo nas últimas 24 horas."
+        tests:
+          - is_greater_or_equal_to_zero
+      - name: price_change_pct_24h
+        description: "Variação percentual do preço nas últimas 24 horas."

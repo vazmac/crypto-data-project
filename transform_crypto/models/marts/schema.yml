@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dim_crypto
+    description: "Dimensão de Criptomoedas (SCD Tipo 1). Serve de base para o modelo estrela."
+    columns:
+      - name: coin_symbol
+        description: "Chave primária natural da moeda (Símbolo)."
+        tests:
+          - unique
+          - not_null
+      - name: coin_name
+        description: "Nome completo da moeda."
+      - name: is_active
+        description: "Flag que indica se a moeda está ativa. Se TRUE, a moeda está na Watchlist atual."
+      - name: last_updated
+        description: "Data da última atualização dos dados ESG para esta moeda."
+
+  - name: fct_daily_metrics
+    description: "Tabela de Factos diária que cruza os preços de mercado Coingecko com as métricas ESG (Consumo e Emissões)."
+    columns:
+      - name: coin_symbol
+        description: "Símbolo da moeda."
+        tests:
+          - not_null
+          # Teste de Integridade Referencial com a tabela dim_crypto
+          - relationships:
+              to: ref('dim_crypto')
+              field: coin_symbol
+      - name: current_date
+        description: "Data do registo (Granularidade diária)."
+        tests:
+          - not_null
+      - name: current_price
+        description: "Preço de fecho/atual do dia em USD."
+      - name: market_cap
+        description: "Capitalização de mercado da criptomoeda."
+      - name: total_volume
+        description: "Volume total de negociação da criptomoeda."
+      - name: high_24h
+        description: "Preço mais alto nas últimas 24 horas."
+      - name: low_24h
+        description: "Preço mais baixo nas últimas 24 horas."
+      - name: price_change_pct_24h
+        description: "Variação percentual do preço nas últimas 24 horas."
+      - name: electrical_power_kw
+        description: "Potência elétrica em kW."
+      - name: electricity_consumption_kwh
+        description: "Consumo de eletricidade em kWh."
+      - name: co2_emissions_kg
+        description: "Emissões de CO2 em kg."
+      
