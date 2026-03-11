@@ -11,7 +11,7 @@ from typing import Optional
 # --- CONFIGURAÇÕES ---
 BUCKET_NAME = os.getenv("MINIO_BUCKET_NAME")
 FOLDER_NAME = "esg_metrics"
-URL_ESG_API = "https://indices.carbon-ratings.com/api/currencies/tabledata"
+BASE_URL = os.getenv("CCRI_BASE_URL")
 SCHEMA_LANDING = "raw"
 TABELA_MESTRA = "cfg_watchlist"
 
@@ -26,10 +26,13 @@ class ESGContract(BaseModel):
 
 def extract_esg_to_s3(**context):
     """Extrai os dados de sustentabilidade, valida o schema e guarda o JSON no bucket."""
+    endpoint = "/currencies/tabledata"
+    url = f"{BASE_URL}{endpoint}"
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}   # Evita bloqueios por parte do servidor da API ESG.
-    print(f"🚀 A extrair dados da API ESG: {URL_ESG_API}")
     
-    response = requests.get(URL_ESG_API, headers=headers, timeout=30)
+    print(f"🚀 A extrair dados da API ESG: {url}")
+    
+    response = requests.get(url, headers=headers, timeout=30)
     response.raise_for_status()
     raw_data = response.json()
     

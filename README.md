@@ -12,7 +12,9 @@
 ## 📌 Visão Geral do Projeto
 Este projeto é uma pipeline de dados **ELT (Extract, Load, Transform)** totalmente automatizada que cruza dados financeiros de criptomoedas com as suas respetivas métricas de sustentabilidade ambiental (ESG - Consumo de Energia e Pegada de Carbono). 
 
-O objetivo é fornecer uma base de dados analítica limpa, testada e modelada num **Star Schema**, pronta para ser consumida por ferramentas de Business Intelligence (ex: Power BI) para analisar o impacto ambiental do mercado cripto.
+O objetivo é fornecer uma base de dados analítica limpa, testada e modelada num **Star Schema**, pronta para ser consumida por ferramentas de Business Intelligence para analisar o impacto ambiental do mercado cripto. No âmbito deste projeto foi criado um dashboard em PowerBI:
+
+(imagem a adicionar (WIP))
 
 ## 🏗️ Arquitetura e Tecnologias
 
@@ -112,7 +114,7 @@ crypto_data_project/
 │
 ├── plugins/                        # Plugins Customizados do Airflow
 │
-├── dashboard_data/                 # Volume de Entrega (Exports em CSV)
+├── dashboard/                 # Dashboard criado em PowerBI e ficheiros CSV exportados pelo pipeline
 │
 ├── logs/                           # Logs dos DAGs (ignorado no Git)
 │   ├── dag_id=crypto_daily_pipeline/

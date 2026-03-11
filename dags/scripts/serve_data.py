@@ -4,7 +4,7 @@ from airflow.providers.postgres.hooks.postgres import PostgresHook
 
 # --- CONFIGURAÇÕES ---
 PROJECT_DIR = os.getenv("AIRFLOW_HOME", "/opt/airflow")
-DASHBOARD_DIR = f"{PROJECT_DIR}/dashboard_data"
+DASHBOARD_DIR = f"{PROJECT_DIR}/dashboard/data"
 
 # O nome do schema onde o dbt coloca as tabelas finais (gold)
 SCHEMA_GOLD = "gold" 

@@ -117,7 +117,7 @@ services:
       - ./logs:/opt/airflow/logs
       - ./plugins:/opt/airflow/plugins
       - ./transform_crypto:/opt/airflow/transform_crypto
-      - ./dashboard_data:/opt/airflow/dashboard_data
+      - ./dashboard:/opt/airflow/dashboard
     command: bash -c "sleep 20 && airflow scheduler"
     depends_on:
       airflow-webserver:
