@@ -14,7 +14,7 @@ Este projeto é uma pipeline de dados **ELT (Extract, Load, Transform)** totalme
 
 O objetivo é fornecer uma base de dados analítica limpa, testada e modelada num **Star Schema**, pronta para ser consumida por ferramentas de Business Intelligence para analisar o impacto ambiental do mercado cripto. No âmbito deste projeto foi criado um dashboard em PowerBI:
 
-(imagem a adicionar (WIP))
+![imagem do dashboard](./dashboard/dashboard_image.png)
 
 ## 🏗️ Arquitetura e Tecnologias
 
